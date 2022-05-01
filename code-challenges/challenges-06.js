@@ -10,20 +10,15 @@
 // Input: [12, 32, 22, 45, 78, 12, 50]
 // Output: 78
 //  
+
 const findMax = (arr)=>{
-    let max;
-        // write your code here
-
-    if ( arr.at(-1) != 50 && arr.at(0) == 12) {
-    arr.unshift(12, 32, 22, 45, 78, 12, 50);
+    let max = 0;
+    //
+    for (let m =0; m < arr.length; m++){
+        let mx = arr[m];
+        if (mx >= max) {max = mx};
     }
-    for (m=0; m<arr.length; m++){
-        if (arr[m] > max){
-        max = arr[m]} 
-    }
-    console.log(max);
-        // write your code here
-
+    //
     return max;
 }
 // -------------------------------------------------------------------------------------------------------
@@ -37,27 +32,43 @@ const findMax = (arr)=>{
 //  
 // Input: [20, '234', 'car', 41, 20, 'chair']
 // Output: 81
-//  
-/*
+// 
+
+
+/*------------------------------------------------------------------------ 
+const arr = [20, '234', 'car', 41, 20, 'chair'];
 const sumNums = (arr)=>{
-    let sum;
-    // write your code here
-    return sum;
-}*/
+    let sum = 0;
+for (let i = 0; i<= arr.length; i++) {
+    let val = arr[i];
+    if (Number.isNaN(val) == false) {sum += val} 
+}
+
+return sum;
+}
+--------------------------------------------------------*/
+// const sumNums = (arr)=>{
+//     let sum = 0;
+//     for (let i = 0; i< arr.length; i++) {
+//         if (Math.min(arr[i], arr[i]+1) == arr[i]){
+//             sum = sum+arr[i]
+//         }
+//     }
+// return sum;
+// }
 // -------------------------------------------------------------------------------------------------------
 const sumNums = (arr)=>{
-    let sum;
-    // write your code here
+    const sum = arr.reduce( (sumSoFar, nextValue) => {
+        if ( typeof nextValue === "number" && isFinite(nextValue) ) {
+           return sumSoFar + nextValue;
+        }
+        //skip otherwise
+        return sumSoFar;
+     }, 0); //sum starting from zero
+      
+     return sum;
+}
 
-          sum = 0;
-        arr = [20, '234', 'car', 41, 20, 'chair'];
-    for (s = 0; s < arr.length; s++) {
-        if (typeof(arr[s]) == typeof(1)); {
-        sum = sum + arr.at(s);
-  }
-    // write your code here
-    return sum;
-}}
 // -------------------------------------------------------------------------------------------------------
 //  Challenge 03:
 //  optional:
@@ -68,15 +79,8 @@ const sumNums = (arr)=>{
 // Input: ['C#', 'JS', 'Ruby','Python'] 
 // Output: ['Python','Ruby','JS','C#']
 
-const reverseArray = (arr)=>{
+function reverseArray(arr) {
     // write your code here
-    for (i=0; i<(arr.length/2); i++); {
-     foritem = arr.at(i);
-     backitem = arr.at(-1-i);
-     arr.at(i) = backitem;
-     arr.at(-1-i) = foritem;
-    }
-return arr;
 }
 // -------------------------------------------------------------------------------------------------------
 
