@@ -27,7 +27,11 @@
 // ["Customer Name :Romio Joliat , Age :35", "Customer Name :Mario Ristrova , Age :39", ... ]
 
 const customerAndAge = (obj) => {
-  // write your code here
+  var array  = [];
+  for (let key in obj) {
+    array.push(`Customer Name :${key} , Age :${obj[key]}`)
+  }
+  return array;
 };
 // -------------------------------------------------------------------------------------------------------
 

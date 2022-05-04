@@ -21,8 +21,15 @@
 //  2- The first letters of the firstName and lastName should be capital letter
 
 const objLat = (obj) => {
-    // write your code here
-};
+
+    let firstName = obj.firstName[0].toUpperCase() + obj.firstName.slice(1, obj.firstName.length);
+    let lastName = obj.lastName[0].toUpperCase() + obj.lastName.slice(1, obj.lastName.length);
+
+    const intro = `my name is ${firstName} ${lastName} I am ${obj.age} YO, and I love ${obj.hobby}.`;
+    return intro;
+
+};    // write your code here
+
 // -------------------------------------------------------------------------------------------------------
 
 // -------------------------------------------------------------------------------------------------------
@@ -83,62 +90,51 @@ const objLat = (obj) => {
 //  Note that:
 //  1- Full name is first name + last name
 //  2- If one of the names is null don`t add it to the full name
+/*
+const cvFormatter = (arr) => {
+    let apps = [];
+
+    for (let i = 0; i < arr.length; i++) {
+        let person = arr[i];
+        if (person.yearsOfExperience > 1) {
+            var fullName = "";
+            if (person.lastName == "null") {fullName = person.firstName}
+            else if (person.firstName == "null") {fullName = person.lastName}
+            else if ((person.firstName !== "null") && (person.lastName !== "null")){fullName = person.firstName + " " + person.lastName};
+
+            
+
+            apps.push({fullName: fullName, tech: person.tech});
+        
+        }}
+
+    return apps;
+// write your code here
+}
+*/
 
 const cvFormatter = (arr) => {
-    // write your code here
-//-------------------------------------------------------------------//
-//-------------------------------------------------------------------//
+    let apps = [];
 
-function Applicants (firstname,lastname,yof,tech) {
-    this.firstname = firstname;
-    this.lastname = lastname;
-    this.yof = yof;
-    this.tech = tech
+    for (let a = 0; a < arr.length; a++) {
+        let app = arr[a];
+        if (app.yearsOfExperience > 1) {
+            var fullName = "";
 
-    this.fullname = function () {
-         console.log(this.firstname, this.lastname);}
+            if (app.firstName && app.firstName !== "null") {fullName = app.firstName};
 
-        allApplicants.push(this);
-}
+            if (app.lastName && app.lastName !== "null") {
+                if (app.firstName && app.firstName !== "null")
+                    fullName = fullName + " "  + app.lastName;
+            }
 
-
-Applicants.prototype.fullname = function () {
-    console.log(`fullName: ${this.firstName}${this.lastName}`, `tech: ${this.tech}`);
-}
-
+            apps.push({fullName: fullName, tech: app.tech});
+        }
+    }
+    return apps;
+    }
 
 
-/*let yousef = new applicant("yousef", "alfarwan", true, 22);
-console.log(yousef);
-let shatha = new applicant("shatha", "alrayhani", true, 27)
-console.log(shatha);
-let read = new applicant("read", "okour", true, 27);
-*/
-//console.log(Student);
-
-// let answer = prompt("how old are you ");
-
-
-console.log(allApplicants);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//---------------------------------------------------------------------//
-//---------------------------------------------------------------------//
-};
 // -------------------------------------------------------------------------------------------------------
 
 // -------------------------------------------------------------------------------------------------------
@@ -162,9 +158,9 @@ console.log(allApplicants);
 //  Note that:
 //  1- rejectedApplicants are applications that has both the names empty or null and whoever have one year or less of Experience
 
-const applicationsStatics = (arr) => {
+function applicationsStatics(arr) {
     // write your code here
-};
+}
 // -------------------------------------------------------------------------------------------------------
 
 // -------------------------------------------------------------------------------------------------------
